@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #7d2ae8;
+}
+
+.main_box {
+  display: flex;
+  width: 700px;
+  height: 350px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+input[type="radio"] {
+  display: none; /* Esconde os radio buttons */
+}
+
+/* Navegação Lateral */
+.main_box .side_nav {
+  height: 100%;
+  width: 200px;
+  background: #f2f2f2;
+  border-radius: 12px 0 0 12px;
+  padding: 15px 0;
+  position: relative;
+}
+
+.side_nav label {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 100%;
+  padding: 0 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.side_nav label i {
+  font-size: 20px;
+}
+
+.side_nav label .text {
+  margin-left: 15px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Movimentação do Slider */
+.side_nav .slider {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  height: 60px;
+  width: 100%;
+  background: #7d2ae8;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Lógica de Seleção */
+#tab-1:checked ~ .side_nav .slider { top: 15px; }
+#tab-2:checked ~ .side_nav .slider { top: 75px; }
+#tab-3:checked ~ .side_nav .slider { top: 135px; }
+#tab-4:checked ~ .side_nav .slider { top: 195px; }
+#tab-5:checked ~ .side_nav .slider { top: 255px; }
+
+#tab-1:checked ~ .side_nav label.tab-1,
+#tab-2:checked ~ .side_nav label.tab-2,
+#tab-3:checked ~ .side_nav label.tab-3,
+#tab-4:checked ~ .side_nav label.tab-4,
+#tab-5:checked ~ .side_nav label.tab-5 {
+  color: #fff;
+}
+
+/* Caixa de Conteúdo */
+.main_box .content_box {
+  width: calc(100% - 200px);
+  padding: 30px;
+}
+
+.content_box .content {
+  display: none; /* Esconde todos inicialmente */
+}
+
+/* Mostra apenas o conteúdo da aba selecionada */
+#tab-1:checked ~ .content_box .content-1,
+#tab-2:checked ~ .content_box .content-2,
+#tab-3:checked ~ .content_box .content-3,
+#tab-4:checked ~ .content_box .content-4,
+#tab-5:checked ~ .content_box .content-5 {
+  display: block;
+}
+
+.content_box .title {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.content_box p {
+  text-align: justify;
+}
